@@ -14,60 +14,148 @@ st.set_page_config(
     initial_sidebar_state='expanded'
 )
 
-# Custom CSS for modern look
+# Custom CSS for modern look with no white backgrounds
 st.markdown("""
 <style>
     .main {
-        background-color: #f0f4f8;
+        background-color: #1e2130;
+        color: #e0e0e0;
     }
     .stTabs [data-baseweb="tab-list"] {
         gap: 24px;
+        background-color: #262b3d;
     }
     .stTabs [data-baseweb="tab"] {
         height: 50px;
         white-space: pre-wrap;
-        background-color: #e6eef7;
+        background-color: #353c54;
         border-radius: 4px 4px 0px 0px;
         gap: 1px;
         padding-top: 10px;
         padding-bottom: 10px;
+        color: #d0d0d0;
     }
     .stTabs [aria-selected="true"] {
         background-color: #4b71a0 !important;
-        color: white !important;
+        color: #e0e0e0 !important;
     }
     h1, h2, h3 {
-        color: #2e5984;
+        color: #8ab4f8;
     }
     .css-1kyxreq {
         justify-content: center;
     }
     .stAlert {
-        background-color: #e8f4f8;
-        border-color: #b0d7e5;
+        background-color: #2b3548;
+        border-color: #3b4863;
+        color: #e0e0e0;
     }
-    .css-1vq4p4l {
-        padding: 1.5rem;
-        border-radius: 0.5rem;
-        background-color: #e8f4f8;
+    div.css-1kyxreq {
+        background-color: #262b3d;
+    }
+    .css-18e3th9 {
+        background-color: #1e2130;
+    }
+    .css-1d391kg {
+        background-color: #262b3d;
     }
     .custom-box {
-        background-color: #edf2f7;
+        background-color: #262b3d;
         border-radius: 10px;
         padding: 20px;
         margin-bottom: 20px;
         border-left: 5px solid #4b71a0;
+        color: #e0e0e0;
     }
     .result-box {
         padding: 15px;
         border-radius: 5px;
         margin-bottom: 10px;
+        background-color: #2b3548;
+        color: #e0e0e0;
     }
     .grid-container {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
         margin-bottom: 20px;
+    }
+    .stTextInput > div > div {
+        background-color: #353c54;
+        color: #e0e0e0;
+    }
+    .stTextInput > label {
+        color: #8ab4f8;
+    }
+    .stFileUploader > div > label {
+        color: #8ab4f8;
+    }
+    .stFileUploader > div > div {
+        background-color: #353c54;
+    }
+    .stButton > button {
+        background-color: #4b71a0;
+        color: #e0e0e0;
+    }
+    .stMarkdown {
+        color: #e0e0e0;
+    }
+    .css-1vq4p4l {
+        background-color: #262b3d;
+    }
+    .css-12oz5g7 {
+        background-color: #1e2130;
+    }
+    div[data-testid="stSidebar"] {
+        background-color: #262b3d;
+        color: #e0e0e0;
+    }
+    div[data-testid="stSidebar"] > div:first-child {
+        background-color: #262b3d;
+    }
+    .primary-box {
+        background-color: #2e4a4e;
+        padding: 15px;
+        border-radius: 5px;
+        height: 100%;
+        border-left: 5px solid #28a745;
+    }
+    .secondary-box {
+        background-color: #2e3c5a;
+        padding: 15px;
+        border-radius: 5px;
+        height: 100%;
+        border-left: 5px solid #0d6efd;
+    }
+    .disease-box {
+        background-color: #2e3c5a;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        border-left: 5px solid #4b71a0;
+    }
+    .result-container {
+        background-color: #2e3c5a;
+        padding: 15px;
+        border-radius: 5px;
+        border-left: 5px solid #4b71a0;
+    }
+    .placeholder-box {
+        background-color: #262b3d;
+        padding: 50px;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 30px;
+    }
+    .stChatInput > div {
+        background-color: #353c54 !important;
+        color: #e0e0e0 !important;
+    }
+    .stChatInput > div > input {
+        color: #e0e0e0 !important;
+    }
+    div[data-testid="stChatMessage"] {
+        background-color: #2e3c5a !important;
     }
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
@@ -221,9 +309,9 @@ with tabs[0]:
                 confidence = random.randint(88, 99) + random.randint(0, 99) * 0.01
                 
                 # Display prediction and confidence
-                st.markdown(f"<div style='background-color:#e8f4f8; padding:15px; border-radius:5px; border-left:5px solid #4b71a0'>", unsafe_allow_html=True)
+                st.markdown(f"<div class='result-container'>", unsafe_allow_html=True)
                 st.markdown(f"#### Detected Condition:")
-                st.markdown(f"<h3 style='color:#2e5984'>{predicted_class}</h3>", unsafe_allow_html=True)
+                st.markdown(f"<h3 style='color:#8ab4f8'>{predicted_class}</h3>", unsafe_allow_html=True)
                 st.markdown(f"<p><b>Confidence:</b> {confidence}%</p>", unsafe_allow_html=True)
                 
                 # Display contagious warning if applicable
@@ -240,13 +328,13 @@ with tabs[0]:
             col1, col2 = st.columns([1, 1])
             
             with col1:
-                st.markdown("<div style='background-color:#e1f5e1; padding:15px; border-radius:5px; height:100%; border-left:5px solid #28a745'>", unsafe_allow_html=True)
+                st.markdown("<div class='primary-box'>", unsafe_allow_html=True)
                 st.markdown("#### Primary Treatment")
                 st.markdown(remedies[predicted_class]['primary'])
                 st.markdown("</div>", unsafe_allow_html=True)
                 
             with col2:
-                st.markdown("<div style='background-color:#e6f0ff; padding:15px; border-radius:5px; height:100%; border-left:5px solid #0d6efd'>", unsafe_allow_html=True)
+                st.markdown("<div class='secondary-box'>", unsafe_allow_html=True)
                 st.markdown("#### Additional Information")
                 st.markdown(remedies[predicted_class]['secondary'])
                 st.markdown("</div>", unsafe_allow_html=True)
@@ -259,7 +347,7 @@ with tabs[0]:
             st.error(f"Error processing image: {e}")
     else:
         # Show placeholder when no image is uploaded
-        st.markdown("<div style='background-color:#f8f9fa; padding:50px; border-radius:10px; text-align:center; margin-top:30px'>", unsafe_allow_html=True)
+        st.markdown("<div class='placeholder-box'>", unsafe_allow_html=True)
         st.markdown("### No image uploaded")
         st.markdown("Please upload a clear image of the skin condition for analysis")
         st.markdown("</div>", unsafe_allow_html=True)
@@ -291,7 +379,7 @@ with tabs[1]:
         
         with col1:
             if i < len(class_names):
-                st.markdown(f"<div style='background-color:#e8f4f8; padding:15px; border-radius:5px; margin-bottom:15px; border-left:5px solid #4b71a0'>", unsafe_allow_html=True)
+                st.markdown(f"<div class='disease-box'>", unsafe_allow_html=True)
                 st.markdown(f"### {class_names[i]}")
                 st.markdown(disease_descriptions[class_names[i]])
                 if remedies[class_names[i]]['contagious']:
@@ -300,7 +388,7 @@ with tabs[1]:
         
         with col2:
             if i + 1 < len(class_names):
-                st.markdown(f"<div style='background-color:#e8f4f8; padding:15px; border-radius:5px; margin-bottom:15px; border-left:5px solid #4b71a0'>", unsafe_allow_html=True)
+                st.markdown(f"<div class='disease-box'>", unsafe_allow_html=True)
                 st.markdown(f"### {class_names[i+1]}")
                 st.markdown(disease_descriptions[class_names[i+1]])
                 if remedies[class_names[i+1]]['contagious']:
