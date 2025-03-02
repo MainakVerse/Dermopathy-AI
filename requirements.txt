@@ -1,0 +1,6 @@
+keras
+numpy
+opencv_python_headless==4.8.0.76
+Pillow
+streamlit
+tensorflow==2.13.0
